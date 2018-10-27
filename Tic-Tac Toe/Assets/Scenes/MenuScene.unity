@@ -273,8 +273,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1853164834}
-  - {fileID: 742231674}
   - {fileID: 1823078915}
+  - {fileID: 742231674}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 429147784}
   - component: {fileID: 429147785}
   m_Layer: 0
-  m_Name: GlobalGameController
+  m_Name: SymbolController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 92690650}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -700,7 +700,7 @@ MonoBehaviour:
   selectText: {fileID: 1708384036}
   goBackButtonObj: {fileID: 1770819569}
   XSymbolButtonObj: {fileID: 1388038968}
-  OSymbolButtonObj: {fileID: 0}
+  OSymbolButtonObj: {fileID: 1925306577}
 --- !u!1 &1087260046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1454,7 @@ RectTransform:
   - {fileID: 1925306578}
   - {fileID: 1708384037}
   m_Father: {fileID: 92690650}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
