@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
@@ -14,9 +15,14 @@ public class MenuController : MonoBehaviour {
     [SerializeField] private GameObject XSymbolButtonObj;
     [SerializeField] private GameObject OSymbolButtonObj;
 
+    //reference to symbol controller script
+    private SymbolController pSymbolController;
 
     // Use this for initialization
     void Start () {
+
+        pSymbolController = GameObject.Find("SymbolController").GetComponent<SymbolController>();
+        Debug.Assert(pSymbolController != null); //safety
 
         //Safety
         Debug.Assert(playButtonObj != null);
@@ -58,6 +64,28 @@ public class MenuController : MonoBehaviour {
         XSymbolButtonObj.SetActive(false);
         OSymbolButtonObj.SetActive(false);
         selectText.SetActive(false);
+    }
+
+    public void SelectPlayerSymbolO()
+    {
+        pSymbolController.SetPlayerSymbol("O");
+        pSymbolController.SetOpposingSymbol("X");
+
+        Debug.Log("Set player symbol to: " +pSymbolController.getPlayerSymbol);
+        Debug.Log("Set opposing symbol to: " + pSymbolController.getOpposingSymbol);
+
+        SceneManager.LoadScene(1);
+    }
+
+    public void SelectPlayerSymbolX()
+    {
+        pSymbolController.SetPlayerSymbol("X");
+        pSymbolController.SetOpposingSymbol("O");
+
+        Debug.Log("Set player symbol to: " + pSymbolController.getPlayerSymbol);
+        Debug.Log("Set opposing symbol to: " + pSymbolController.getOpposingSymbol);
+
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
