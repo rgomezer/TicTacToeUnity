@@ -20,19 +20,19 @@ public class SymbolController : MonoBehaviour {
 
     public void SetPlayerSymbol(string other)
     {
-        this.playerSymbol = other;
+        playerSymbol = other;
     }
 
     public void SetOpposingSymbol(string other)
     {
-        this.opposingSymbol = other;
+        opposingSymbol = other;
     }
 
     public string getPlayerSymbol
     {
         get
         {
-            return this.playerSymbol;
+            return playerSymbol;
         }
     }
 
@@ -40,7 +40,7 @@ public class SymbolController : MonoBehaviour {
     {
         get
         {
-            return this.opposingSymbol;
+            return opposingSymbol;
         }
     }
 }

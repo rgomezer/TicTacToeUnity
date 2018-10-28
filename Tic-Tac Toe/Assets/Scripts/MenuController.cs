@@ -44,6 +44,7 @@ public class MenuController : MonoBehaviour {
 		
 	}
 
+    //These functions deal with button function calls
     public void PlayGame()
     {     
         playButtonObj.SetActive(false);
