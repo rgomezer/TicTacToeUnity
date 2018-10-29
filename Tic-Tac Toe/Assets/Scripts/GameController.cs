@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour {
     [SerializeField] private GameObject gameOverPanelObj;
     [SerializeField] private Text gameOverText;
 
+    //reference to game ai controller script
+    private GameAIController pGameAIController;
+
     private bool isGameOver;
     private bool isMoveMade;
     private bool hasPlayerWon;
@@ -22,6 +25,9 @@ public class GameController : MonoBehaviour {
         Debug.Assert(spaces != null);
         Debug.Assert(gameOverPanelObj != null);
         Debug.Assert(gameOverText != null);
+
+        pGameAIController = GameObject.Find("GameController").GetComponent<GameAIController>();
+        Debug.Assert(pGameAIController != null); //safety
 
         //set game over panel to not show at start
         gameOverPanelObj.SetActive(false);
@@ -56,6 +62,11 @@ public class GameController : MonoBehaviour {
                 {
                     ShowMatchAsDraw();
                     isGameOver = true;
+                }
+
+                if(numMoves > 1 && !hasPlayerWon)
+                {
+                    pGameAIController.ComputerMove();
                 }
 
                 isMoveMade = false;
@@ -191,6 +202,22 @@ public class GameController : MonoBehaviour {
         get
         {
             return isMoveMade;
+        }
+    }
+
+    public bool getHasPlayerWon
+    {
+        get
+        {
+            return hasPlayerWon;
+        }
+    }
+
+    public bool getHasComputerWon
+    {
+        get
+        {
+            return hasComputerWon;
         }
     }
 

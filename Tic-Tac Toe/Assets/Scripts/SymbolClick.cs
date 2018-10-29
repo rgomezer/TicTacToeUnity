@@ -13,9 +13,6 @@ public class SymbolClick : MonoBehaviour {
     //reference to game controller script
     private GameController pGameController;
 
-    //reference to game ai controller script
-    private GameAIController pGameAIController;
-
     // Use this for initialization
     void Start () {
 
@@ -24,9 +21,6 @@ public class SymbolClick : MonoBehaviour {
 
         pGameController = GameObject.Find("GameController").GetComponent<GameController>();
         Debug.Assert(pGameController != null); //safety
-
-        pGameAIController = GameObject.Find("GameController").GetComponent<GameAIController>();
-        Debug.Assert(pGameAIController != null); //safety
     }
 	
 	// Update is called once per frame
@@ -43,11 +37,6 @@ public class SymbolClick : MonoBehaviour {
             buttonID = 1;
             pGameController.SetMoveMade(true);
             pGameController.DecrementMoves();
-
-            if (pGameController.getNumMoves > 1)
-            {
-                pGameAIController.ComputerMove();
-            }
         }
         else
         {
