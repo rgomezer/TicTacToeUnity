@@ -23,8 +23,18 @@ public class GameMenuController : MonoBehaviour {
 		
 	}
 
+    void DestroySymbolController()
+    {
+        //Garbage collection
+        GameObject temp = GameObject.Find("SymbolController");
+        Debug.Assert(temp != null); //safety
+
+        Destroy(temp);
+    }
+
     public void GoBackToMainMenu()
     {
+        DestroySymbolController();
         SceneManager.LoadScene(0);
     }
 

@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class SymbolClick : MonoBehaviour {
 
-    private int playerButtonID = 0;
+    private int buttonID = 0;
 
     //reference to symbol controller script
     private SymbolController pSymbolController;
 
     //reference to game controller script
     private GameController pGameController;
+
+    //reference to game ai controller script
+    private GameAIController pGameAIController;
 
     // Use this for initialization
     void Start () {
@@ -21,6 +24,9 @@ public class SymbolClick : MonoBehaviour {
 
         pGameController = GameObject.Find("GameController").GetComponent<GameController>();
         Debug.Assert(pGameController != null); //safety
+
+        pGameAIController = GameObject.Find("GameController").GetComponent<GameAIController>();
+        Debug.Assert(pGameAIController != null); //safety
     }
 	
 	// Update is called once per frame
@@ -34,9 +40,14 @@ public class SymbolClick : MonoBehaviour {
         {
             gameObject.GetComponentInChildren<Text>().text = pSymbolController.getPlayerSymbol;
             gameObject.GetComponent<Button>().interactable = false;
-            playerButtonID = 1;
+            buttonID = 1;
             pGameController.SetMoveMade(true);
             pGameController.DecrementMoves();
+
+            if (pGameController.getNumMoves > 1)
+            {
+                pGameAIController.ComputerMove();
+            }
         }
         else
         {
@@ -44,11 +55,16 @@ public class SymbolClick : MonoBehaviour {
         }
     }
 
+    public void SetButtonID(int other)
+    {
+        buttonID = other;
+    }
+
     public int getButtonID
     {
         get
         {
-            return playerButtonID;
+            return buttonID;
         }
     }
 }
